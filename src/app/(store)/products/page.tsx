@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
-import { products } from '@/data/products';
+import { getAllProducts } from '@/data/products';
 import ProductCard from '@/components/products/ProductCard';
+
+export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: 'Shop All Products',
@@ -8,6 +10,7 @@ export const metadata: Metadata = {
 };
 
 export default function ProductsPage() {
+  const products = getAllProducts();
   return (
     <div className="mx-auto max-w-6xl px-4 sm:px-6 py-12">
       <div className="mb-10">

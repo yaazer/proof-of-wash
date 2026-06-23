@@ -1,9 +1,12 @@
 import Link from 'next/link';
 import { ArrowRight, Leaf, Droplets, RefreshCw, Bitcoin } from 'lucide-react';
-import { getFeaturedProducts, products } from '@/data/products';
+import { getAllProducts, getFeaturedProducts } from '@/data/products';
 import ProductCard from '@/components/products/ProductCard';
 
+export const dynamic = 'force-dynamic';
+
 export default function HomePage() {
+  const products = getAllProducts();
   const featured = getFeaturedProducts();
 
   return (

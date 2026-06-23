@@ -3,16 +3,14 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
-import { getProductBySlug, products } from '@/data/products';
+import { getProductBySlug } from '@/data/products';
 import AddToCartSection from '@/components/products/AddToCartSection';
 import clsx from 'clsx';
 
+export const dynamic = 'force-dynamic';
+
 interface Props {
   params: Promise<{ slug: string }>;
-}
-
-export async function generateStaticParams() {
-  return products.map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -44,7 +42,6 @@ export default async function ProductPage({ params }: Props) {
 
   return (
     <div className="mx-auto max-w-6xl px-4 sm:px-6 py-10">
-      {/* Back link */}
       <Link
         href="/products"
         className="mb-8 inline-flex items-center gap-1.5 text-sm text-charcoal-500 hover:text-charcoal-900 transition-colors"
@@ -53,7 +50,6 @@ export default async function ProductPage({ params }: Props) {
       </Link>
 
       <div className="grid grid-cols-1 gap-10 lg:grid-cols-2">
-        {/* Image */}
         <div className="relative aspect-square overflow-hidden rounded-2xl bg-linen-100">
           <Image
             src={product.image}
@@ -63,7 +59,6 @@ export default async function ProductPage({ params }: Props) {
             className="object-cover"
             priority
           />
-          {/* Fallback gradient */}
           <div className="absolute inset-0 bg-gradient-to-br from-linen-200 to-linen-100 -z-10 flex items-center justify-center">
             <span className="font-serif text-8xl text-linen-400">✦</span>
           </div>
@@ -74,7 +69,6 @@ export default async function ProductPage({ params }: Props) {
           )}
         </div>
 
-        {/* Info */}
         <div className="flex flex-col">
           <p className="text-xs font-semibold uppercase tracking-widest text-charcoal-400 mb-2">
             {product.scent}
@@ -86,15 +80,12 @@ export default async function ProductPage({ params }: Props) {
 
           <p className="mt-6 text-sm text-charcoal-700 leading-relaxed">{product.description}</p>
 
-          {/* Weight */}
           <p className="mt-4 text-sm text-charcoal-500">
             <span className="font-medium text-charcoal-700">Size:</span> {product.weight}
           </p>
 
-          {/* Add to cart with variant selection */}
           <AddToCartSection product={product} />
 
-          {/* Ingredients */}
           {product.ingredients.length > 0 && (
             <div className="mt-8 card p-5">
               <p className="text-xs font-semibold uppercase tracking-widest text-charcoal-400 mb-3">
@@ -106,7 +97,6 @@ export default async function ProductPage({ params }: Props) {
             </div>
           )}
 
-          {/* Payment callout */}
           <div className="mt-6 flex flex-wrap gap-2">
             <span className="inline-flex items-center gap-1.5 rounded-full border border-linen-300 px-3 py-1 text-xs text-charcoal-500">
               💳 Pay with card via Square
