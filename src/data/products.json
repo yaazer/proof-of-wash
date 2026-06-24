@@ -2,29 +2,43 @@
   {
     "id": "pow-001",
     "slug": "lavender-cedar-concentrate",
-    "name": "Lavender & Cedar Concentrate",
+    "name": "Lavender & Cedar",
     "tagline": "Calm. Clean. Lasting.",
-    "description": "Our signature concentrate blends wildcrafted lavender essential oil with cedarwood extract and plant-derived surfactants. A single 32 oz bottle yields up to 96 loads — powerful cleaning, naturally.",
+    "description": "Our signature powder blends wildcrafted lavender essential oil with cedarwood and a natural washing soda base. One 32 oz bag yields up to 96 loads — powerful cleaning, naturally.",
     "ingredients": [
-      "Aqua",
-      "Decyl glucoside (plant-derived surfactant)",
-      "Lavandula angustifolia (lavender) oil",
-      "Cedrus atlantica (cedarwood) bark extract",
+      "Sodium carbonate (washing soda)",
+      "Sodium bicarbonate (baking soda)",
+      "Sodium percarbonate (oxygen brightener)",
       "Sodium citrate (natural water softener)",
-      "Citric acid",
-      "Glycerin (plant-derived)"
+      "Lavandula angustifolia (lavender) essential oil",
+      "Cedrus atlantica (cedarwood) essential oil"
     ],
     "scent": "Floral-woody — lavender top notes, warm cedarwood base",
-    "weight": "32 fl oz (946 ml)",
+    "weight": "32 oz (907 g)",
     "price": 2400,
     "priceDisplay": "$24.00",
-    "image": "/images/lavender-cedar.jpg",
+    "image": "/images/lavender-cedar.png",
     "badge": "bestseller",
     "inStock": true,
     "variants": [
-      { "id": "pow-001-sm", "label": "16 fl oz", "price": 1400, "priceDisplay": "$14.00" },
-      { "id": "pow-001-md", "label": "32 fl oz", "price": 2400, "priceDisplay": "$24.00" },
-      { "id": "pow-001-lg", "label": "64 fl oz (Refill)", "price": 4200, "priceDisplay": "$42.00" }
+      {
+        "id": "pow-001-sm",
+        "label": "16 oz",
+        "price": 1400,
+        "priceDisplay": "$14.00"
+      },
+      {
+        "id": "pow-001-md",
+        "label": "32 oz",
+        "price": 2400,
+        "priceDisplay": "$24.00"
+      },
+      {
+        "id": "pow-001-lg",
+        "label": "64 oz (Refill)",
+        "price": 4200,
+        "priceDisplay": "$42.00"
+      }
     ]
   },
   {
@@ -32,26 +46,40 @@
     "slug": "unscented-sensitive",
     "name": "Unscented Sensitive Formula",
     "tagline": "Nothing extra. Just clean.",
-    "description": "Formulated for sensitive skin and fragrance-free households. Hypoallergenic, free of dyes and synthetic fragrances, dermatologist-tested. Safe for baby clothes and HE machines.",
+    "description": "When skin is reactive, every ingredient matters. This fragrance-free powder skips the dyes, synthetics, and fillers — just gentle washing soda, baking soda, and sodium citrate doing the work. Dermatologist-tested, safe for baby clothes, and compatible with all HE machines.",
     "ingredients": [
-      "Aqua",
-      "Coco-glucoside (coconut-derived surfactant)",
-      "Sodium bicarbonate",
+      "Sodium carbonate (washing soda)",
+      "Sodium bicarbonate (baking soda)",
+      "Sodium percarbonate (oxygen brightener)",
       "Sodium citrate",
-      "Citric acid",
-      "Glycerin"
+      "Citric acid"
     ],
     "scent": "Fragrance-free",
-    "weight": "32 fl oz (946 ml)",
+    "weight": "32 oz (907 g)",
     "price": 2200,
     "priceDisplay": "$22.00",
-    "image": "/images/unscented.jpg",
+    "image": "/images/unscented.png",
     "badge": "new",
     "inStock": true,
     "variants": [
-      { "id": "pow-002-sm", "label": "16 fl oz", "price": 1300, "priceDisplay": "$13.00" },
-      { "id": "pow-002-md", "label": "32 fl oz", "price": 2200, "priceDisplay": "$22.00" },
-      { "id": "pow-002-lg", "label": "64 fl oz (Refill)", "price": 3800, "priceDisplay": "$38.00" }
+      {
+        "id": "pow-002-sm",
+        "label": "16 oz",
+        "price": 1300,
+        "priceDisplay": "$13.00"
+      },
+      {
+        "id": "pow-002-md",
+        "label": "32 oz",
+        "price": 2200,
+        "priceDisplay": "$22.00"
+      },
+      {
+        "id": "pow-002-lg",
+        "label": "64 oz (Refill)",
+        "price": 3800,
+        "priceDisplay": "$38.00"
+      }
     ]
   },
   {
@@ -59,27 +87,40 @@
     "slug": "eucalyptus-peppermint",
     "name": "Eucalyptus & Peppermint",
     "tagline": "Cool. Clear. Clean.",
-    "description": "Eucalyptus leaf oil and peppermint extract hit stubborn odors hard — the kind that survive a regular wash. Your gym clothes, kitchen linens, and kids' gear come out genuinely clean, not just masked. Smells like a fresh start.",
+    "description": "Eucalyptus essential oil and peppermint hit stubborn odors hard — the kind that survive a regular wash. Your gym clothes, kitchen linens, and kids' gear come out genuinely clean, not just masked. Smells like a fresh start.",
     "ingredients": [
-      "Aqua",
-      "Sodium lauryl sulfoacetate (plant-derived)",
-      "Eucalyptus globulus (eucalyptus) leaf oil",
-      "Mentha piperita (peppermint) leaf extract",
+      "Sodium carbonate (washing soda)",
+      "Sodium bicarbonate (baking soda)",
+      "Sodium percarbonate (oxygen brightener)",
       "Sodium citrate",
-      "Citric acid",
-      "Glycerin",
-      "Tocopherol (vitamin E, natural preservative)"
+      "Eucalyptus globulus (eucalyptus) essential oil",
+      "Mentha piperita (peppermint) essential oil"
     ],
     "scent": "Cool eucalyptus, icy mint finish",
-    "weight": "32 fl oz (946 ml)",
+    "weight": "32 oz (907 g)",
     "price": 2600,
     "priceDisplay": "$26.00",
-    "image": "/images/eucalyptus-peppermint.jpg",
+    "image": "/images/eucalyptus-peppermint.png",
     "inStock": true,
     "variants": [
-      { "id": "pow-003-sm", "label": "16 fl oz", "price": 1500, "priceDisplay": "$15.00" },
-      { "id": "pow-003-md", "label": "32 fl oz", "price": 2600, "priceDisplay": "$26.00" },
-      { "id": "pow-003-lg", "label": "64 fl oz (Refill)", "price": 4500, "priceDisplay": "$45.00" }
+      {
+        "id": "pow-003-sm",
+        "label": "16 oz",
+        "price": 1500,
+        "priceDisplay": "$15.00"
+      },
+      {
+        "id": "pow-003-md",
+        "label": "32 oz",
+        "price": 2600,
+        "priceDisplay": "$26.00"
+      },
+      {
+        "id": "pow-003-lg",
+        "label": "64 oz (Refill)",
+        "price": 4500,
+        "priceDisplay": "$45.00"
+      }
     ]
   },
   {
@@ -87,21 +128,21 @@
     "slug": "orange-vanilla-delicate",
     "name": "Orange & Vanilla Delicate Wash",
     "tagline": "For the things worth keeping.",
-    "description": "Silk blouses, cashmere sweaters, heirloom linens — they deserve better than a harsh spin cycle. Sweet orange essential oil brightens while warm vanilla extract softens and conditions delicate fibers, leaving fabrics clean and gently fragrant.",
+    "description": "Silk blouses, cashmere sweaters, heirloom linens — they deserve better than a harsh cycle. A gentle powder base with sweet orange essential oil and warm vanilla conditions delicate fibers and keeps static in check. Wash with intention.",
     "ingredients": [
-      "Aqua",
-      "Citrus sinensis (sweet orange) essential oil",
-      "Caprylyl/capryl glucoside (plant-derived)",
-      "Vanilla planifolia (vanilla) extract",
-      "Glycerin",
+      "Sodium bicarbonate (baking soda)",
+      "Sodium citrate",
+      "Kaolin (white clay)",
       "Sodium PCA (natural humectant)",
+      "Citrus sinensis (sweet orange) essential oil",
+      "Vanilla planifolia (vanilla) extract",
       "Citric acid"
     ],
     "scent": "Bright sweet orange, warm vanilla base",
-    "weight": "16 fl oz (473 ml)",
+    "weight": "16 oz (454 g)",
     "price": 1800,
     "priceDisplay": "$18.00",
-    "image": "/images/orange-vanilla.jpg",
+    "image": "/images/orange-vanilla.png",
     "badge": "limited",
     "inStock": true
   },
@@ -110,10 +151,10 @@
     "slug": "starter-bundle",
     "name": "Starter Bundle",
     "tagline": "Try all four. Fall in love with one.",
-    "description": "Four 8 oz travel-size bottles — one of every formula. Perfect for finding your match or gifting someone who deserves clean, natural laundry care.",
+    "description": "Four sample pouches, one of every formula. Try them all and find your favorite — or give the whole set to someone who deserves a laundry upgrade. Cleaner ingredients, better results, no guesswork.",
     "ingredients": [],
     "scent": "Assorted (all four formulas)",
-    "weight": "4 × 8 fl oz",
+    "weight": "4 × 4 oz pouches",
     "price": 3600,
     "priceDisplay": "$36.00",
     "image": "/images/starter-bundle.jpg",
