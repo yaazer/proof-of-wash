@@ -8,48 +8,41 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Proof of Wash brand palette — clean linen, soapstone, deep indigo
+        // Proof of Wash brand palette
         linen: {
-          50:  '#faf9f6',
-          100: '#f3f0e8',
-          200: '#e5dfd0',
-          300: '#d0c7b1',
-          400: '#b8ab90',
-          500: '#a09070',
-          600: '#8a7a5d',
-          700: '#70614b',
-          800: '#5c4f3e',
-          900: '#4c4234',
-        },
-        soap: {
-          50:  '#f0f7ff',
-          100: '#e0effe',
-          200: '#b9dffe',
-          300: '#7cc5fd',
-          400: '#36a8fa',
-          500: '#0c8dec',
-          600: '#006fca',
-          700: '#0158a4',
-          800: '#064b86',
-          900: '#0b3f6f',
+          50:  '#FBF5E9',  // Paper — main background
+          100: '#F4ECD8',  // Label Cream — cards / labels
+          200: '#EFE4CC',
+          300: '#E4D6B8',
+          400: '#CBB68C',
+          500: '#b8a47a',
+          600: '#9a8a60',
+          700: '#7c6f4a',
+          800: '#5c5236',
+          900: '#3d3628',
         },
         charcoal: {
-          50:  '#f6f6f6',
-          100: '#e7e7e7',
-          200: '#d1d1d1',
-          300: '#b0b0b0',
-          400: '#888888',
-          500: '#6d6d6d',
-          600: '#5d5d5d',
-          700: '#4f4f4f',
-          800: '#454545',
-          900: '#3d3d3d',
-          950: '#262626',
+          50:  '#f5f2ee',
+          100: '#e4dfd8',
+          200: '#c8bfb5',
+          300: '#a89e94',
+          400: '#8a8278',
+          500: '#6e6760',
+          600: '#5c5550',
+          700: '#4a443c',
+          800: '#2e2926',
+          900: '#1A1714',  // Ink — primary text / lines
+          950: '#0f0d0b',
+        },
+        bitcoin: {
+          DEFAULT: '#F7931A',
+          dark: '#C56A12',
         },
       },
       fontFamily: {
-        sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
-        serif: ['var(--font-playfair)', 'Georgia', 'serif'],
+        sans:  ['var(--font-archivo)', 'system-ui', 'sans-serif'],
+        serif: ['var(--font-archivo-black)', 'system-ui', 'sans-serif'],
+        mono:  ['var(--font-space-mono)', 'monospace'],
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',

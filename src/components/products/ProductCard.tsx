@@ -5,6 +5,8 @@ import Image from 'next/image';
 import { ShoppingCart } from 'lucide-react';
 import type { Product } from '@/types';
 import { useCartStore, formatCents } from '@/lib/cart';
+import { useCartUI } from '@/lib/cartUI';
+import { useSizePicker } from '@/lib/sizePickerUI';
 import clsx from 'clsx';
 
 interface ProductCardProps {
@@ -25,10 +27,23 @@ const badgeLabel: Record<string, string> = {
 
 export default function ProductCard({ product }: ProductCardProps) {
   const addItem = useCartStore((s) => s.addItem);
+  const { openDrawer } = useCartUI();
+  const openSizePicker = useSizePicker((s) => s.open);
+
+  const hasVariants = product.variants && product.variants.length > 0;
+  const startingPrice = hasVariants
+    ? Math.min(...product.variants!.map((v) => v.price))
+    : product.price;
 
   function handleAdd(e: React.MouseEvent) {
     e.preventDefault();
-    addItem(product, undefined, 1);
+    e.stopPropagation();
+    if (hasVariants) {
+      openSizePicker(product);
+    } else {
+      addItem(product, undefined, 1);
+      openDrawer();
+    }
   }
 
   return (
@@ -45,22 +60,15 @@ export default function ProductCard({ product }: ProductCardProps) {
           sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
           className="object-cover transition-transform duration-500 group-hover:scale-105"
           onError={(e) => {
-            // Fallback to a placeholder gradient when image is missing
             (e.target as HTMLImageElement).style.display = 'none';
           }}
         />
-        {/* Gradient placeholder shown behind image */}
         <div className="absolute inset-0 bg-gradient-to-br from-linen-200 to-linen-100 -z-10 flex items-center justify-center">
           <span className="font-serif text-4xl text-linen-400">✦</span>
         </div>
 
         {product.badge && (
-          <span
-            className={clsx(
-              'absolute left-3 top-3',
-              badgeClass[product.badge]
-            )}
-          >
+          <span className={clsx('absolute left-3 top-3', badgeClass[product.badge])}>
             {badgeLabel[product.badge]}
           </span>
         )}
@@ -76,9 +84,9 @@ export default function ProductCard({ product }: ProductCardProps) {
         </h3>
         <p className="mt-1 text-sm text-charcoal-500 line-clamp-2">{product.tagline}</p>
 
-        <div className="mt-4 flex items-center justify-between">
+        <div className="mt-4 flex items-center justify-between gap-2">
           <span className="text-base font-semibold text-charcoal-900">
-            {formatCents(product.price)}
+            {hasVariants ? 'From ' : ''}{formatCents(startingPrice)}
           </span>
           <button
             onClick={handleAdd}
@@ -86,7 +94,7 @@ export default function ProductCard({ product }: ProductCardProps) {
             aria-label={`Add ${product.name} to cart`}
           >
             <ShoppingCart className="h-3.5 w-3.5" />
-            Add
+            {hasVariants ? 'Choose' : 'Add'}
           </button>
         </div>
       </div>

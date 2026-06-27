@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Trash2, Minus, Plus, ArrowRight, ShoppingBag } from 'lucide-react';
-import { useCartStore, formatCents, calculateShipping, SHIPPING_THRESHOLD } from '@/lib/cart';
+import { useCartStore, formatCents, calculateShipping, SHIPPING_THRESHOLD, SHIPPING_FLAT } from '@/lib/cart';
 
 export default function CartPage() {
   const { items, removeItem, updateQuantity } = useCartStore();
@@ -34,6 +34,37 @@ export default function CartPage() {
       <div className="grid grid-cols-1 gap-10 lg:grid-cols-3">
         {/* Items */}
         <div className="lg:col-span-2 space-y-4">
+          {/* Free shipping progress bar */}
+          {(() => {
+            const toFree = Math.max(0, SHIPPING_THRESHOLD - subtotal);
+            const progress = Math.min(100, (subtotal / SHIPPING_THRESHOLD) * 100);
+            return (
+              <div className="rounded-2xl border border-linen-200 bg-linen-50 px-5 py-4">
+                {toFree === 0 ? (
+                  <p className="text-sm font-medium text-green-700">
+                    🎉 You&apos;ve unlocked free shipping!
+                  </p>
+                ) : (
+                  <>
+                    <p className="text-sm text-charcoal-600 mb-2">
+                      Add{' '}
+                      <span className="font-semibold text-charcoal-900">{formatCents(toFree)}</span>{' '}
+                      more to unlock free shipping{' '}
+                      <span className="text-charcoal-400 line-through text-xs">
+                        {formatCents(SHIPPING_FLAT)}
+                      </span>
+                    </p>
+                    <div className="h-2 rounded-full bg-linen-200 overflow-hidden">
+                      <div
+                        className="h-full rounded-full bg-charcoal-900 transition-all duration-500"
+                        style={{ width: `${progress}%` }}
+                      />
+                    </div>
+                  </>
+                )}
+              </div>
+            );
+          })()}
           {items.map((item) => {
             const variant = item.variantId
               ? item.product.variants?.find((v) => v.id === item.variantId)

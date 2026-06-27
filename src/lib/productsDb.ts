@@ -23,3 +23,31 @@ export function getProductById(id: string): Product | undefined {
 export function getFeaturedProducts(): Product[] {
   return readProducts().filter((p) => p.badge === 'bestseller' || p.badge === 'new');
 }
+
+export function decrementStock(
+  productId: string,
+  variantId: string | undefined,
+  quantity: number,
+): void {
+  const products = readProducts();
+  const idx = products.findIndex((p) => p.id === productId);
+  if (idx === -1) return;
+
+  if (variantId && products[idx].variants) {
+    const vIdx = products[idx].variants!.findIndex((v) => v.id === variantId);
+    if (vIdx === -1) return;
+    const currentStock = products[idx].variants![vIdx].stock;
+    if (typeof currentStock === 'number') {
+      const variants = [...products[idx].variants!];
+      variants[vIdx] = { ...variants[vIdx], stock: Math.max(0, currentStock - quantity) };
+      products[idx] = { ...products[idx], variants };
+    }
+  } else if (!variantId) {
+    const currentStock = products[idx].stock;
+    if (typeof currentStock === 'number') {
+      products[idx] = { ...products[idx], stock: Math.max(0, currentStock - quantity) };
+    }
+  }
+
+  writeProducts(products);
+}

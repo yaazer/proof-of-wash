@@ -80,7 +80,7 @@ export const useCartStore = create<CartStore>()(
         }, 0);
       },
     }),
-    { name: 'pow-cart' }
+    { name: 'pow-cart', skipHydration: true }
   )
 );
 

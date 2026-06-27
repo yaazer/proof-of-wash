@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { LayoutDashboard, Package, ExternalLink } from 'lucide-react';
+import { LayoutDashboard, Package, ExternalLink, Receipt } from 'lucide-react';
 import AdminLogoutButton from '@/components/admin/AdminLogoutButton';
 
 export const metadata: Metadata = { title: 'Admin | Proof of Wash' };
@@ -29,6 +29,13 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           >
             <Package className="h-4 w-4 shrink-0" />
             Products
+          </Link>
+          <Link
+            href="/admin/transactions"
+            className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors"
+          >
+            <Receipt className="h-4 w-4 shrink-0" />
+            Transactions
           </Link>
         </nav>
 

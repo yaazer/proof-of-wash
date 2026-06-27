@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { readProducts } from '@/lib/productsDb';
 import { PlusCircle, Pencil } from 'lucide-react';
 import StockToggle from '@/components/admin/StockToggle';
+import VariantStockEditor from '@/components/admin/VariantStockEditor';
 
 export const dynamic = 'force-dynamic';
 
@@ -37,7 +38,8 @@ export default function AdminProductsPage() {
               <th className="text-left px-5 py-3.5 font-medium text-gray-500">Product</th>
               <th className="text-left px-5 py-3.5 font-medium text-gray-500">Price</th>
               <th className="text-left px-5 py-3.5 font-medium text-gray-500">Badge</th>
-              <th className="text-left px-5 py-3.5 font-medium text-gray-500">Stock</th>
+              <th className="text-left px-5 py-3.5 font-medium text-gray-500">Available</th>
+              <th className="text-left px-5 py-3.5 font-medium text-gray-500">Units</th>
               <th className="px-5 py-3.5" />
             </tr>
           </thead>
@@ -60,6 +62,9 @@ export default function AdminProductsPage() {
                 </td>
                 <td className="px-5 py-4">
                   <StockToggle productId={p.id} inStock={p.inStock} />
+                </td>
+                <td className="px-5 py-4">
+                  <VariantStockEditor product={p} />
                 </td>
                 <td className="px-5 py-4 text-right">
                   <Link

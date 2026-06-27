@@ -4,38 +4,45 @@
     "slug": "lavender-cedar-concentrate",
     "name": "Lavender & Cedar",
     "tagline": "Calm. Clean. Lasting.",
-    "description": "Our signature powder blends wildcrafted lavender essential oil with cedarwood and a natural washing soda base. One 32 oz bag yields up to 96 loads — powerful cleaning, naturally.",
+    "description": "Our signature powder blends wildcrafted lavender essential oil with cedarwood and a natural washing soda base. The Mid Bag (1.2kg) yields 80 loads — or try the Trial Tin for 10 loads to find your fit.",
+    "scent": "Llavender top notes, warm cedarwood base",
+    "weight": "Multiple Sizes",
+    "price": 1800,
+    "priceDisplay": "$18.00",
+    "image": "/images/lavender-cedar.png",
+    "badge": "new",
+    "inStock": true,
     "ingredients": [
       "Sodium carbonate (washing soda)",
       "Sodium bicarbonate (baking soda)",
       "Sodium percarbonate (oxygen brightener)",
       "Sodium citrate (natural water softener)",
-      "Lavandula angustifolia (lavender) essential oil",
-      "Cedrus atlantica (cedarwood) essential oil"
+      "Sodium Lauryl Sulfoacetate (SLSA)",
+      "Cedrus atlantica (cedarwood) essential oil",
+      "Lavandula angustifolia (lavender) essential oil"
     ],
-    "scent": "Floral-woody — lavender top notes, warm cedarwood base",
-    "weight": "32 oz (907 g)",
-    "price": 2400,
-    "priceDisplay": "$24.00",
-    "image": "/images/lavender-cedar.png",
-    "badge": "bestseller",
-    "inStock": true,
     "variants": [
       {
         "id": "pow-001-sm",
-        "label": "16 oz",
-        "price": 1400,
-        "priceDisplay": "$14.00"
+        "label": "Trial Tin — 150g / 10 loads",
+        "price": 600,
+        "priceDisplay": "$6.00"
       },
       {
         "id": "pow-001-md",
-        "label": "32 oz",
-        "price": 2400,
-        "priceDisplay": "$24.00"
+        "label": "Hero Bag — 600g / 40 loads",
+        "price": 1800,
+        "priceDisplay": "$18.00"
       },
       {
         "id": "pow-001-lg",
-        "label": "64 oz (Refill)",
+        "label": "Mid Bag — 1.2kg / 80 loads",
+        "price": 2800,
+        "priceDisplay": "$28.00"
+      },
+      {
+        "id": "pow-001-v4",
+        "label": "Bulk Bag — 2.4kg / 160 loads",
         "price": 4200,
         "priceDisplay": "$42.00"
       }
@@ -47,38 +54,44 @@
     "name": "Unscented Sensitive Formula",
     "tagline": "Nothing extra. Just clean.",
     "description": "When skin is reactive, every ingredient matters. This fragrance-free powder skips the dyes, synthetics, and fillers — just gentle washing soda, baking soda, and sodium citrate doing the work. Dermatologist-tested, safe for baby clothes, and compatible with all HE machines.",
+    "scent": "Fragrance-free",
+    "weight": "Trial Tin (150g) · Hero Bag (600g) · Mid Bag (1.2kg)",
+    "price": 1800,
+    "priceDisplay": "$18.00",
+    "image": "/images/unscented.png",
+    "badge": "new",
+    "inStock": true,
     "ingredients": [
       "Sodium carbonate (washing soda)",
       "Sodium bicarbonate (baking soda)",
       "Sodium percarbonate (oxygen brightener)",
       "Sodium citrate",
-      "Citric acid"
+      "Sodium Lauryl Sulfoacetate"
     ],
-    "scent": "Fragrance-free",
-    "weight": "32 oz (907 g)",
-    "price": 2200,
-    "priceDisplay": "$22.00",
-    "image": "/images/unscented.png",
-    "badge": "new",
-    "inStock": true,
     "variants": [
       {
         "id": "pow-002-sm",
-        "label": "16 oz",
-        "price": 1300,
-        "priceDisplay": "$13.00"
+        "label": "Trial Tin — 150g / 10 loads",
+        "price": 500,
+        "priceDisplay": "$5.00"
       },
       {
         "id": "pow-002-md",
-        "label": "32 oz",
-        "price": 2200,
-        "priceDisplay": "$22.00"
+        "label": "Hero Bag — 600g / 40 loads",
+        "price": 1800,
+        "priceDisplay": "$18.00"
       },
       {
         "id": "pow-002-lg",
-        "label": "64 oz (Refill)",
-        "price": 3800,
-        "priceDisplay": "$38.00"
+        "label": "Mid Bag — 1.2kg / 80 loads",
+        "price": 2800,
+        "priceDisplay": "$28.00"
+      },
+      {
+        "id": "pow-002-v4",
+        "label": "Bulk Bag — 2.4kg / 160 loads",
+        "price": 4200,
+        "priceDisplay": "$42.00"
       }
     ]
   },
@@ -88,63 +101,97 @@
     "name": "Eucalyptus & Peppermint",
     "tagline": "Cool. Clear. Clean.",
     "description": "Eucalyptus essential oil and peppermint hit stubborn odors hard — the kind that survive a regular wash. Your gym clothes, kitchen linens, and kids' gear come out genuinely clean, not just masked. Smells like a fresh start.",
+    "scent": "Cool eucalyptus, icy mint finish",
+    "weight": "Trial Tin (150g) · Hero Bag (600g) · Mid Bag (1.2kg)",
+    "price": 1800,
+    "priceDisplay": "$18.00",
+    "image": "/images/citrus-mint.png",
+    "badge": "new",
+    "inStock": true,
     "ingredients": [
       "Sodium carbonate (washing soda)",
       "Sodium bicarbonate (baking soda)",
       "Sodium percarbonate (oxygen brightener)",
       "Sodium citrate",
+      "Sodium Lauryl Sulfoacetate (SLSA)",
       "Eucalyptus globulus (eucalyptus) essential oil",
       "Mentha piperita (peppermint) essential oil"
     ],
-    "scent": "Cool eucalyptus, icy mint finish",
-    "weight": "32 oz (907 g)",
-    "price": 2600,
-    "priceDisplay": "$26.00",
-    "image": "/images/eucalyptus-peppermint.png",
-    "inStock": true,
     "variants": [
       {
         "id": "pow-003-sm",
-        "label": "16 oz",
-        "price": 1500,
-        "priceDisplay": "$15.00"
+        "label": "Trial Tin — 150g / 10 loads",
+        "price": 600,
+        "priceDisplay": "$6.00"
       },
       {
         "id": "pow-003-md",
-        "label": "32 oz",
-        "price": 2600,
-        "priceDisplay": "$26.00"
+        "label": "Hero Bag — 600g / 40 loads",
+        "price": 1800,
+        "priceDisplay": "$18.00"
       },
       {
         "id": "pow-003-lg",
-        "label": "64 oz (Refill)",
-        "price": 4500,
-        "priceDisplay": "$45.00"
+        "label": "Mid Bag — 1.2kg / 80 loads",
+        "price": 2800,
+        "priceDisplay": "$28.00"
+      },
+      {
+        "id": "pow-003-v4",
+        "label": "Bulk Bag — 2.4kg / 160 loads",
+        "price": 4200,
+        "priceDisplay": "$42.00"
       }
     ]
   },
   {
     "id": "pow-004",
     "slug": "orange-vanilla-delicate",
-    "name": "Orange & Vanilla Delicate Wash",
+    "name": "Orange & Vanilla",
     "tagline": "For the things worth keeping.",
     "description": "Silk blouses, cashmere sweaters, heirloom linens — they deserve better than a harsh cycle. A gentle powder base with sweet orange essential oil and warm vanilla conditions delicate fibers and keeps static in check. Wash with intention.",
-    "ingredients": [
-      "Sodium bicarbonate (baking soda)",
-      "Sodium citrate",
-      "Kaolin (white clay)",
-      "Sodium PCA (natural humectant)",
-      "Citrus sinensis (sweet orange) essential oil",
-      "Vanilla planifolia (vanilla) extract",
-      "Citric acid"
-    ],
     "scent": "Bright sweet orange, warm vanilla base",
-    "weight": "16 oz (454 g)",
+    "weight": "600g",
     "price": 1800,
     "priceDisplay": "$18.00",
     "image": "/images/orange-vanilla.png",
-    "badge": "limited",
-    "inStock": true
+    "badge": "new",
+    "inStock": true,
+    "ingredients": [
+      "Sodium bicarbonate (baking soda)",
+      "Sodium citrate",
+      "Sodium carbonate (washing soda)",
+      "Sodium percarbonate",
+      "Sodium lauryl sulfoacetate (coconut-derived)",
+      "Citrus sinensis (sweet orange) essential oil",
+      "Vanilla planifolia (vanilla) extract"
+    ],
+    "variants": [
+      {
+        "id": "pow-004-v1",
+        "label": "Trial Tin - 150g ",
+        "price": 600,
+        "priceDisplay": "$6.00"
+      },
+      {
+        "id": "pow-004-v2",
+        "label": "Hero Bag - 600g ",
+        "price": 1800,
+        "priceDisplay": "$18.00"
+      },
+      {
+        "id": "pow-004-v3",
+        "label": "Mid Bag - 1.2kg",
+        "price": 2800,
+        "priceDisplay": "$28.00"
+      },
+      {
+        "id": "pow-004-v4",
+        "label": "Bulk Bag - 2.4kg",
+        "price": 4200,
+        "priceDisplay": "$42.00"
+      }
+    ]
   },
   {
     "id": "pow-005",
@@ -152,13 +199,13 @@
     "name": "Starter Bundle",
     "tagline": "Try all four. Fall in love with one.",
     "description": "Four sample pouches, one of every formula. Try them all and find your favorite — or give the whole set to someone who deserves a laundry upgrade. Cleaner ingredients, better results, no guesswork.",
-    "ingredients": [],
     "scent": "Assorted (all four formulas)",
-    "weight": "4 × 4 oz pouches",
-    "price": 3600,
-    "priceDisplay": "$36.00",
-    "image": "/images/starter-bundle.jpg",
+    "weight": "4 × 150g tins ",
+    "price": 2500,
+    "priceDisplay": "$25.00",
+    "image": "/images/bundle.svg",
     "badge": "bestseller",
-    "inStock": true
+    "inStock": true,
+    "ingredients": []
   }
 ]

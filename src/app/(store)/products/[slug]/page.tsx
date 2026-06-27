@@ -2,9 +2,10 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowLeft } from 'lucide-react';
-import { getProductBySlug } from '@/data/products';
+import { ChevronRight } from 'lucide-react';
+import { getProductBySlug, getAllProducts } from '@/data/products';
 import AddToCartSection from '@/components/products/AddToCartSection';
+import ProductCard from '@/components/products/ProductCard';
 import clsx from 'clsx';
 
 export const dynamic = 'force-dynamic';
@@ -40,14 +41,20 @@ export default async function ProductPage({ params }: Props) {
   const product = getProductBySlug(slug);
   if (!product) notFound();
 
+  const related = getAllProducts()
+    .filter((p) => p.id !== product.id && p.inStock)
+    .slice(0, 3);
+
   return (
     <div className="mx-auto max-w-6xl px-4 sm:px-6 py-10">
-      <Link
-        href="/products"
-        className="mb-8 inline-flex items-center gap-1.5 text-sm text-charcoal-500 hover:text-charcoal-900 transition-colors"
-      >
-        <ArrowLeft className="h-4 w-4" /> All Products
-      </Link>
+      {/* Breadcrumbs */}
+      <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-1.5 text-xs text-charcoal-400">
+        <Link href="/" className="hover:text-charcoal-700 transition-colors">Home</Link>
+        <ChevronRight className="h-3 w-3" />
+        <Link href="/products" className="hover:text-charcoal-700 transition-colors">Products</Link>
+        <ChevronRight className="h-3 w-3" />
+        <span className="text-charcoal-700 font-medium">{product.name}</span>
+      </nav>
 
       <div className="grid grid-cols-1 gap-10 lg:grid-cols-2">
         <div className="relative aspect-square overflow-hidden rounded-2xl bg-linen-100">
@@ -107,6 +114,20 @@ export default async function ProductPage({ params }: Props) {
           </div>
         </div>
       </div>
+
+      {/* Related products */}
+      {related.length > 0 && (
+        <section className="mt-20 border-t border-linen-200 pt-12">
+          <h2 className="font-serif text-2xl font-semibold text-charcoal-900 mb-8">
+            You might also like
+          </h2>
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {related.map((p) => (
+              <ProductCard key={p.id} product={p} />
+            ))}
+          </div>
+        </section>
+      )}
     </div>
   );
 }

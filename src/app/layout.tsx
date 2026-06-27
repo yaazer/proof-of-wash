@@ -1,18 +1,26 @@
 import type { Metadata } from 'next';
-import { Inter, Playfair_Display } from 'next/font/google';
+import { Archivo, Archivo_Black, Space_Mono } from 'next/font/google';
 import './globals.css';
 
-const inter = Inter({
+const archivo = Archivo({
   subsets: ['latin'],
-  variable: '--font-inter',
+  variable: '--font-archivo',
   display: 'swap',
+  weight: ['400', '500', '600', '700'],
 });
 
-const playfair = Playfair_Display({
+const archivBlack = Archivo_Black({
   subsets: ['latin'],
-  variable: '--font-playfair',
+  variable: '--font-archivo-black',
   display: 'swap',
-  style: ['normal', 'italic'],
+  weight: '400',
+});
+
+const spaceMono = Space_Mono({
+  subsets: ['latin'],
+  variable: '--font-space-mono',
+  display: 'swap',
+  weight: ['400', '700'],
 });
 
 export const metadata: Metadata = {
@@ -33,7 +41,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
+    <html lang="en" className={`${archivo.variable} ${archivBlack.variable} ${spaceMono.variable}`}>
       <body>{children}</body>
     </html>
   );

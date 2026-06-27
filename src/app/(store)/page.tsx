@@ -46,7 +46,7 @@ export default function HomePage() {
         </div>
 
         {/* Decorative bubbles */}
-        <div className="pointer-events-none absolute -bottom-24 -right-24 h-96 w-96 rounded-full bg-soap-900/20 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-24 -right-24 h-96 w-96 rounded-full bg-bitcoin/20 blur-3xl" />
         <div className="pointer-events-none absolute -top-16 -left-16 h-72 w-72 rounded-full bg-linen-900/10 blur-3xl" />
       </section>
 
@@ -121,7 +121,7 @@ export default function HomePage() {
               },
               {
                 title: 'Concentrated Formula',
-                body: 'A single 32 oz bottle delivers up to 96 loads — less packaging waste, more value.',
+                body: 'The Mid Bag (1.2kg) yields 80 loads; scale up to the Bulk Bag for 160 — less packaging waste, more value.',
               },
               {
                 title: 'Sovereign Payments',

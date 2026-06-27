@@ -12,6 +12,7 @@ export interface Product {
   image: string;
   badge?: 'bestseller' | 'new' | 'limited';
   inStock: boolean;
+  stock?: number | null; // null = untracked, 0 = OOS, positive = units available
   variants?: ProductVariant[];
 }
 
@@ -20,6 +21,7 @@ export interface ProductVariant {
   label: string;
   price: number;
   priceDisplay: string;
+  stock?: number | null; // null = untracked, 0 = OOS, positive = units available
 }
 
 export interface CartItem {

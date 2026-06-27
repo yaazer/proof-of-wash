@@ -1,10 +1,12 @@
 import Link from 'next/link';
+import NewsletterSignup from './NewsletterSignup';
 
 export default function Footer() {
   return (
     <footer className="mt-24 border-t border-linen-200 bg-charcoal-950 text-linen-300">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 py-12">
-        <div className="grid grid-cols-1 gap-10 sm:grid-cols-3">
+        <NewsletterSignup />
+      <div className="grid grid-cols-1 gap-10 sm:grid-cols-3">
           {/* Brand */}
           <div>
             <p className="font-serif text-lg font-semibold text-white">Proof of Wash</p>

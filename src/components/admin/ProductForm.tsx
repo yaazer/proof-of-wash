@@ -1,9 +1,9 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { useState, useEffect, useTransition } from 'react';
 import { PlusCircle, Trash2 } from 'lucide-react';
 import type { Product, ProductVariant } from '@/types';
+import { updateProduct, createProduct, deleteProduct } from '@/app/admin/(panel)/actions';
 
 interface Props {
   product?: Product;
@@ -37,8 +37,8 @@ function generateId(): string {
 }
 
 export default function ProductForm({ product }: Props) {
-  const router = useRouter();
   const isEdit = !!product;
+  const [isPending, startTransition] = useTransition();
 
   const [name, setName] = useState(product?.name ?? '');
   const [slug, setSlug] = useState(product?.slug ?? '');
@@ -62,10 +62,8 @@ export default function ProductForm({ product }: Props) {
     })) ?? []
   );
   const [error, setError] = useState('');
-  const [saving, setSaving] = useState(false);
-  const [deleting, setDeleting] = useState(false);
+  const [saved, setSaved] = useState(false);
 
-  // Auto-generate slug from name unless manually edited
   useEffect(() => {
     if (!slugManual) setSlug(slugify(name));
   }, [name, slugManual]);
@@ -75,7 +73,6 @@ export default function ProductForm({ product }: Props) {
     setSlug(val);
   }
 
-  // Ingredients helpers
   function setIngredient(i: number, val: string) {
     setIngredients((prev) => prev.map((x, idx) => (idx === i ? val : x)));
   }
@@ -86,7 +83,6 @@ export default function ProductForm({ product }: Props) {
     setIngredients((prev) => prev.filter((_, idx) => idx !== i));
   }
 
-  // Variants helpers
   function setVariantField(i: number, field: keyof VariantRow, val: string) {
     setVariants((prev) => prev.map((v, idx) => (idx === i ? { ...v, [field]: val } : v)));
   }
@@ -103,7 +99,6 @@ export default function ProductForm({ product }: Props) {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setError('');
-    setSaving(true);
 
     const variantObjs: ProductVariant[] = variants
       .filter((v) => v.label.trim())
@@ -131,38 +126,30 @@ export default function ProductForm({ product }: Props) {
       ...(variantObjs.length > 0 ? { variants: variantObjs } : {}),
     };
 
-    try {
-      const url = isEdit ? `/api/admin/products/${product.id}` : '/api/admin/products';
-      const method = isEdit ? 'PUT' : 'POST';
-      const res = await fetch(url, {
-        method,
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-      });
-      if (!res.ok) {
-        const { error: msg } = await res.json();
-        setError(msg ?? 'Save failed.');
-        return;
+    startTransition(async () => {
+      try {
+        const result = isEdit
+          ? await updateProduct(product.id, payload)
+          : await createProduct(payload);
+
+        if (!result.ok) {
+          setError(result.error);
+          return;
+        }
+        setSaved(true);
+        setTimeout(() => { window.location.href = '/admin/products'; }, 900);
+      } catch {
+        setError('Save failed. Check your connection and try again.');
       }
-      router.push('/admin/products');
-      router.refresh();
-    } catch {
-      setError('Network error. Please try again.');
-    } finally {
-      setSaving(false);
-    }
+    });
   }
 
   async function handleDelete() {
     if (!product || !confirm(`Delete "${product.name}"? This cannot be undone.`)) return;
-    setDeleting(true);
-    try {
-      await fetch(`/api/admin/products/${product.id}`, { method: 'DELETE' });
-      router.push('/admin/products');
-      router.refresh();
-    } finally {
-      setDeleting(false);
-    }
+    startTransition(async () => {
+      await deleteProduct(product.id);
+      window.location.href = '/admin/products';
+    });
   }
 
   const inputClass =
@@ -378,6 +365,12 @@ export default function ProductForm({ product }: Props) {
         </button>
       </div>
 
+      {saved && (
+        <p className="rounded-lg bg-green-50 border border-green-200 px-4 py-3 text-sm text-green-700 font-medium">
+          ✓ {isEdit ? 'Changes saved.' : 'Product created.'} Redirecting…
+        </p>
+      )}
+
       {error && (
         <p className="rounded-lg bg-red-50 border border-red-200 px-4 py-3 text-sm text-red-700">
           {error}
@@ -390,11 +383,11 @@ export default function ProductForm({ product }: Props) {
           <button
             type="button"
             onClick={handleDelete}
-            disabled={deleting}
+            disabled={isPending}
             className="inline-flex items-center gap-2 rounded-lg border border-red-200 px-4 py-2.5 text-sm font-medium text-red-600 hover:bg-red-50 disabled:opacity-50 transition-colors"
           >
             <Trash2 className="h-4 w-4" />
-            {deleting ? 'Deleting…' : 'Delete product'}
+            {isPending ? 'Working…' : 'Delete product'}
           </button>
         ) : (
           <span />
@@ -403,17 +396,17 @@ export default function ProductForm({ product }: Props) {
         <div className="flex items-center gap-3">
           <button
             type="button"
-            onClick={() => router.back()}
+            onClick={() => { window.location.href = '/admin/products'; }}
             className="rounded-lg border border-gray-200 px-4 py-2.5 text-sm font-medium text-gray-600 hover:bg-gray-50 transition-colors"
           >
             Cancel
           </button>
           <button
             type="submit"
-            disabled={saving}
+            disabled={isPending || saved}
             className="rounded-lg bg-gray-900 px-5 py-2.5 text-sm font-medium text-white hover:bg-gray-700 disabled:opacity-50 transition-colors"
           >
-            {saving ? 'Saving…' : isEdit ? 'Save changes' : 'Create product'}
+            {saved ? '✓ Saved' : isPending ? 'Saving…' : isEdit ? 'Save changes' : 'Create product'}
           </button>
         </div>
       </div>

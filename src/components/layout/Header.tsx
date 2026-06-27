@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { ShoppingCart, Menu, X } from 'lucide-react';
 import { useCartStore } from '@/lib/cart';
+import { useCartUI } from '@/lib/cartUI';
 import clsx from 'clsx';
 
 const navLinks = [
@@ -15,6 +16,7 @@ const navLinks = [
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const itemCount = useCartStore((s) => s.itemCount());
+  const { openDrawer } = useCartUI();
 
   return (
     <header className="sticky top-0 z-50 bg-linen-50/95 backdrop-blur-sm border-b border-linen-200">
@@ -45,8 +47,8 @@ export default function Header() {
 
           {/* Right actions */}
           <div className="flex items-center gap-3">
-            <Link
-              href="/cart"
+            <button
+              onClick={openDrawer}
               className="relative p-2 text-charcoal-700 hover:text-charcoal-900 transition-colors"
               aria-label="Shopping cart"
             >
@@ -56,7 +58,7 @@ export default function Header() {
                   {itemCount > 9 ? '9+' : itemCount}
                 </span>
               )}
-            </Link>
+            </button>
 
             <button
               className="md:hidden p-2 text-charcoal-700"
